@@ -83,7 +83,28 @@ their are four scalar types (representing a single value) in rust:
 		tuples can be destructed (allowing one element of the tuple to be called) in multiple ways
 			let tup2_2 = tup2.2; //will call the second element of the 2nd tuple
 			let (x,y,z) = tup1; //will declare x, y, and z as the elements of the first tuple respectivly
-		
+
+	-Array
+		a collection of multiple variables
+		-differs from a tuple in the fact that every element must be of the same type
+		-arrays are fixed in length and cannot grow or shrink the amount of elements
+
+		arrays are declared in brackets
+			let array1 = [1,2,3,4,5];		
+
+		variable type and array size can be defined in an array
+			let array1: [i32; 5] = [1,2,3,4,5]; 
+
+		Arrays can be initaialized to contain the same value for a specified amount of elements
+			let array2 = [4;5];
+			array2 == [4,4,4,4,4]
+	
+		individual elements in an array can be mutable and shadowed
+
+		array elements can be accessed like the following 
+			let first = array1[0]; //this will access array 1 setting the value to the zero index of the array
+			
+			rust won't allow you to use -1 to access the last element of the array though since the size is fixed it shouldn't be too big of an issue
 
 [RECIEVING_USER_INPUT]
 using the i/o functionality from the standard library (std::io) stdin() function
@@ -118,3 +139,7 @@ not using a .expect() will allow for the program to compile but it will throw a 
 
 [MATCH_EXPRESSIONS]
 A match expression is made up of arms. An arm consists of a pattern to match against, and the code that should be run if the value given to match fits that arm's pattern
+
+
+[FUNCTIONS]
+
