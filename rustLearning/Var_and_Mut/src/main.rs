@@ -31,4 +31,23 @@ fn main() {
 	
 	println!("the second value of the second tuple is {:?}", tup2.2);
 
+	//Arrays
+	let mut array1 = [1,2,3,4,5];
+	println!("this is the first array {:?}", array1);
+	array1[0] += 1;
+	println!("this is the first element of the array plus 1 {:?}", array1[0]);
+
+	//initalizing an array with kown size and a constant value
+	let array2 = [5;6];
+	println!("this is an array of six fives {:?}", array2);
+
+	//rust doesn't allow you to use -1 to access the last element of an array
+	
+
+
+
+
+
+
+
 }

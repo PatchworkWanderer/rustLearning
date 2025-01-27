@@ -1,0 +1,112 @@
+when making a new rust project you have to run "rustc <rust_file>" and then './<exec_file>' that is then generated
+
+after finishing your project run 'cargo build' to create an executable file for debug purpouses in ./target/debug/<cargoDirName>
+
+you can also skip the step of running it after building with the 'cargo run' command
+
+a list of dependancies and their versions are maintained in the cargo.lock file 
+
+'cargo check' runs a check over the code to make sure its able to compile but doesn't create an executable file
+
+[COMMENTS]
+// == single line comment
+/*<multiple lines to comment> */ == multi line comment
+
+[VARIABLES]
+there are two types of variables immutable and mutable by default all variables are considered immutable unless defined 
+	- mutable ==== it can change
+	- immutable == the value is constant
+
+rust implements immutable variables by default as a security feature of the language
+
+variables are defined by the keyword 'let'
+    variables can be defined as mutable in the form of "let mut <varName> = <value>"
+variables can be called in a string by using {} as placeholders (println!({x}) will print the value of x)
+
+Constants are like variables but are meant to never be mutable ever and can be called like
+        const ALL_UPPERCASE_VAR_NAME = <value>
+it is convention in rust to make all constant names in all caps with underscores between words.
+
+[SHADOWING]
+shadowing is when you redeclare a variable. such as
+        let x = 4;
+        let x = x+1;
+        {
+            let x = x*2;
+        }
+Because let was used to define x twice the second value is used even though the variable wasn't mutable.
+
+in the bottom half of the above example a innerscope was created which will only be available inside that scope
+
+one of the differences between mut and shadowing is that shadowing allows you to change the variable value type while keeping the same name.
+
+[DATA TYPES]
+Rust is a statically typed language meaning that it needs to know the value type at compile time.
+
+their are four scalar types (representing a single value) in rust:
+        -integers
+            length   :: signed :: unsigned
+             8bit    ::   i8   ::    u8
+            16bit    ::  i16   ::   u16
+            32bit    ::  i32   ::   u32
+            64bit    ::  i64   ::   u64
+           128bit    :: i128   ::  u128
+            arch     :: isize  ::  usize
+
+           arch size is dependent upon your system archetecture.
+
+        -floats
+			there are only 2 versions of floats all floats are signed
+			f32 & f64  
+			f64 is the  64 bit version of 32f and is the default version cause its roughly the same speed and is more accurate
+
+        -booleans
+			True or false
+			the bool type is specified by the bool keyword
+			bools are one byte in size
+
+        -character
+			a single character is four bytes in size and represents a unicode scalar value
+			chars can contain more than just ASCII values
+			char literals are specified with single quotes 'A'
+
+[Compound Types]
+	-Tuple
+		a way of grouping together a number of values with a variety of types into one compound type.
+		they have a fixed length and cannot be changed once declared
+
+		let tup: (i32, f64, u8) = (500,6.4,1);	
+
+[RECIEVING_USER_INPUT]
+using the i/o functionality from the standard library (std::io) stdin() function
+	ex. include std::io
+	    io::stdin()
+	        .read_line(&mut guess)
+
+the .read_line() is called on the stdin() handle to get the input from the user
+	the "&mut guess" argument to set the variable to the user input
+
+the & in "&mut guess" indicates that it is a reference. which lets multiple parts of the code to access one piece of data without needing to copy that data into memory multiple time
+
+the .read_line() also passes a second Result value.
+	Result is an enumeration, which is a type that can be in one of multiple possible states called varients
+
+[INPUT_VALIDATION]
+    let guess: u32 = match guess.trim().parse() {
+        Ok(num) => num,
+        Err(_) => continue,
+        };
+
+in the example of the above we are validating that the variable guess is a number
+        after the trim method we parse the variable witch will return an enum of OK and Err
+        if parse() is able to turn the gusse into a num it will return an Ok value if not will return an Err
+
+
+[ERROR_CASING]
+when we want to troubleshoot we can use a .expect() method which will take the Result value for stdin the two possible varient values are ok and err if ok is passsed the program will keep on going but if an err value is passed it will break and display whatever was passed as an argument inside of the .expect() method.
+
+not using a .expect() will allow for the program to compile but it will throw a warning.
+
+
+[MATCH_EXPRESSIONS]
+A match expression is made up of arms. An arm consists of a pattern to match against, and the code that should be run if the value given to match fits that arm's pattern
