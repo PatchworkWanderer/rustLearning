@@ -20,14 +20,17 @@
 	 
 [Loops]
 	- Rust has three types of loops
-		-'loop' = tells rust to exec the code block until explicitly told to stop either with a ctl-C, continue, or a break statement
-		- 
-		-
+		-'loop' == tells rust to exec the code block until explicitly told to stop either with a ctl-C, continue, or a break statement
+		-'while' = is active for as long as the condition is true 
+		-'for' === iterates a specified amount of times
 
 		-continue in a loop will tell rust to skip over any remaining code in he iteration of the loop and go to the next iteration(keeps you in the loop)
 		-break will tell the program when to stop the loop and to start executing the code on the next line after the loop 
 
+		-if you have nested loops, break and continue apply to the innermost loop at that point.
 
+		optionally loops can be created with a "loop label"  that can be used to specify a specific loop to break/continue from
+			- loop labels are created with a single quote ( 'first_loop: loop{<code>} / break 'first_loop ) 
 
 
 

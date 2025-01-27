@@ -18,7 +18,19 @@ fn main() {
 	let conditional_number = if example_condition {6} else {9};
 	println!("the conditional number is: {conditional_number}");
 
-	loop_types(30)
+	//loop section
+	loop_types(30);
+
+	//passing the value of a loop to the rest of the code
+	let mut counter = 0;
+	let result = loop {
+		counter +=1;
+
+		if counter == 10 {
+			break counter * 2;
+		}
+	};
+	println!("The result of the loop is {result}");
 
 
 }
