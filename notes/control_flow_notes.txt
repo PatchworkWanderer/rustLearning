@@ -1,0 +1,20 @@
+[Control_Flow]
+|
+[If_expressions]
+	- allows you to branch your code depending on conditions using keywords "if" and "else"
+	- multiple conditions can be used by using and "else if" expression
+	- the condition has to result in a bool for the if statement to work
+
+		if <expression> {
+			<code to exec if true>
+		} else if <second expression> { 
+			<code to exec if true>
+		} else {
+			<code to exec if above expressions are false>
+		}
+
+	- if expressions can be made without an else statement which would cause the code to just move on to the next operation
+
+	- if expressions can be used in a let statement to assign the outcome to a variable
+		the if and else values must have a similar type based on the first type.
+	 
