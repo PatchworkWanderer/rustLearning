@@ -142,4 +142,18 @@ A match expression is made up of arms. An arm consists of a pattern to match aga
 
 
 [FUNCTIONS]
+	in rust functions are declared with the 'fn' keyword followed by the function name with arguments then encapsulated in curly braces
+		fn this_is_a_function() {
+			println!("this is the result of the function");
+		}
+	to call a function in main
+		fn main(){
+			this_is_a_function();
+		}
 
+	rust will allow functions to be called from any scope as long as it exists
+	
+	when creating a function that takes an argument the variable type must be declared as well
+		fn test(x: u32) {<code here>}
+
+	this is done so that the compilier almost never needs you to use them elsewhere in the code to figure out what type you mean
