@@ -159,3 +159,24 @@ A match expression is made up of arms. An arm consists of a pattern to match aga
 	this is done so that the compilier almost never needs you to use them elsewhere in the code to figure out what type you mean
 
 	
+[Statements]
+	Satements are instructions that perform some action and do not return a value
+	-function definitions are considered statements
+	
+
+[Expression]
+	Expressions evaluate to a resultant value
+	
+	expressions can be part of statements 
+	
+	the act of calling a function is also considered an expression
+
+	
+[Function_Return_Values]
+	-functions can return values to the code that calls them
+
+	-return values don't have to be named but they must have their type declared after an arrow
+
+	fn test() -> i32 {"test"}
+
+
