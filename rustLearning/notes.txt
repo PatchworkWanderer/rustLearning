@@ -73,7 +73,9 @@ their are four scalar types (representing a single value) in rust:
 [Compound Types]
 	-Tuple
 		a way of grouping together a number of values with a variety of types into one compound type.
-		they have a fixed length and cannot be changed once declared
+		-they have a fixed length and cannot be changed once declared
+		-tuples are can only be printed if there are 12 or less elements in the tuple
+		
 
 		let tup1: (i32, f64, u8) = (500,6.4,1);
 		let tup2 = (true, 23, 'x');
