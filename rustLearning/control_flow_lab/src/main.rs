@@ -18,4 +18,26 @@ fn main() {
 	let conditional_number = if example_condition {6} else {9};
 	println!("the conditional number is: {conditional_number}");
 
+	loop_types(30)
+
+
+}
+
+
+fn loop_types(loop_iterations: u16) {
+	// starts a loop that will break after counter == loop_iterations
+	let mut counter = 0;
+	loop {
+		counter +=1;
+		
+		if counter % 10 == 0 {
+			println!("this is a multiple of 10");
+		} else {
+			println!("this is loop: {counter}");
+		}
+
+		if counter == loop_iterations {
+			break
+		}
+	}
 }

@@ -18,3 +18,18 @@
 	- if expressions can be used in a let statement to assign the outcome to a variable
 		the if and else values must have a similar type based on the first type.
 	 
+[Loops]
+	- Rust has three types of loops
+		-'loop' = tells rust to exec the code block until explicitly told to stop either with a ctl-C, continue, or a break statement
+		- 
+		-
+
+		-continue in a loop will tell rust to skip over any remaining code in he iteration of the loop and go to the next iteration(keeps you in the loop)
+		-break will tell the program when to stop the loop and to start executing the code on the next line after the loop 
+
+
+
+
+
+
+
