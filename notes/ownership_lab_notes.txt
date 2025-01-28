@@ -48,6 +48,4 @@ there are three rules of ownership in rust:
 	because rust invalidates the first variable it is considered a move.
 
 	
- 
-#this is a test section delete after test
 	
