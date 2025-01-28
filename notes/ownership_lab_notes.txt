@@ -1,1 +1,21 @@
 [Ownership]
+a set of rules that govern how a rust program manages memory.
+
+this is used to manage how rust uses a computers memory while it is executing a program
+
+[Stack]
+	the stack stores values in the order that it recieves them in a "last in, first out" way
+	
+	adding data to the stack is call pushing to the stack
+
+	deleting data from the stack is called popping of the stack
+
+	must have a fixed known size
+
+[Heap]
+	the heap is a less organized way to store values in memory
+
+	when allocating on the heap you request for an empty spot in the heap that is big enough, marks it as being used, then returns a pointer to that space
+	
+	a
+	
