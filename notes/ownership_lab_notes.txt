@@ -3,6 +3,17 @@ a set of rules that govern how a rust program manages memory.
 
 this is used to manage how rust uses a computers memory while it is executing a program
 
+there are three rules of ownership in rust:
+	-Each value has an owner
+	-There can only be one owner at a time
+	-if the owner goes out of scope, the value will be dropped.
+
+[Scope]
+	the range within a program for which an item is valid
+
+	when a variable comes into scope it is valid and remains so until it goes out of scope
+
+
 [Stack]
 	the stack stores values in the order that it recieves them in a "last in, first out" way
 	
@@ -11,11 +22,21 @@ this is used to manage how rust uses a computers memory while it is executing a 
 	deleting data from the stack is called popping of the stack
 
 	must have a fixed known size
+	
+	Is much faster than allocating on the heap
 
 [Heap]
 	the heap is a less organized way to store values in memory
 
 	when allocating on the heap you request for an empty spot in the heap that is big enough, marks it as being used, then returns a pointer to that space
-	
-	a
-	
+[Memory_and_Allocation]
+	using the string type as an example, in order to support a mutable, growable piece of text, we need to allocate an amount of memory on the heap, unknown at compile time, to hold the contents.
+		-the memory must be requested from the memory allocator at runtime
+		-we need a way of returning this memory to the allocator when we're done with our string
+
+	the first part is done by using the String::from() in the first part of the lab 
+		-the String::from() requests the memory that it needs
+
+	the second part is different from most languages cause rust doesn't have a garbage collector that keeps track of and cleans up memory that isn't being used anymore
+		-the resposiblilty falls to the programmer to be the garbage collecter
+		- match one allocate to exactly one free
