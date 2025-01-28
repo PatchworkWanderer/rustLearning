@@ -19,12 +19,12 @@ fn main() {
 	println!("the conditional number is: {conditional_number}");
 
 	// loop section
-	// uncomment each function below to test
+	// uncomment each function call below to test
 		//passing_value_loop();
 		//loop_types(30);
 		//loop_labels();
 		//while_loop();
-		for_loop();
+		//for_loop();
 }
 
 fn passing_value_loop() {
