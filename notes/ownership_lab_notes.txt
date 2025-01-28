@@ -40,3 +40,14 @@ there are three rules of ownership in rust:
 	the second part is different from most languages cause rust doesn't have a garbage collector that keeps track of and cleans up memory that isn't being used anymore
 		-the resposiblilty falls to the programmer to be the garbage collecter
 		- match one allocate to exactly one free
+
+	Rust will auto matically return memory once the variable that owns it goes out of scope with the drop function
+
+	when a variable's value stored in the heap is assigned to another variable rust will release the original 
+	variable to avoid causing a double free error. unlike shallow copies and deep copies in other languages
+	because rust invalidates the first variable it is considered a move.
+
+	
+ 
+
+	
