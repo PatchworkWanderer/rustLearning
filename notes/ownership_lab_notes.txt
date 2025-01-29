@@ -29,6 +29,7 @@ there are three rules of ownership in rust:
 	the heap is a less organized way to store values in memory
 
 	when allocating on the heap you request for an empty spot in the heap that is big enough, marks it as being used, then returns a pointer to that space
+
 [Memory_and_Allocation]
 	using the string type as an example, in order to support a mutable, growable piece of text, we need to allocate an amount of memory on the heap, unknown at compile time, to hold the contents.
 		-the memory must be requested from the memory allocator at runtime
@@ -47,5 +48,10 @@ there are three rules of ownership in rust:
 	variable to avoid causing a double free error. unlike shallow copies and deep copies in other languages
 	because rust invalidates the first variable it is considered a move.
 
-	
+[DEEP_COPY]
+	a deep copy is a way to copy the heap data of a string instead of the stack data
+
+	- a deep copy is commonly done with the clone method
+
+	-this is a very resource expensive way to copy data 
 	

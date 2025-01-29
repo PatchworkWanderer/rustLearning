@@ -33,6 +33,11 @@ fn moving_variables() {
 }
 
 fn deep_copy() {
+	// the clone method allows the variable str2 to copy the data
+	// from str1 directly from the heap
+	let str1 = String::from("hello");
+	let str2 = str1.clone();
 
+	println!("str1 = {str1}, str2 = {str2}");
 
 }
