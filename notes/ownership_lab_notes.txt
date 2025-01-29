@@ -55,3 +55,17 @@ there are three rules of ownership in rust:
 
 	-this is a very resource expensive way to copy data 
 	
+[Stack_copy]
+	if data is stored on the stack it can be copied directly from the stack
+
+	data types that can implement copy are:
+		-all integer types
+		-booleans
+		-all floats
+		-chars
+		-tuples if the only contain types that can also implement copy [ (i32, i64) ]
+
+[Returning_value]
+	Returning a value from a function is also a way to transfer ownership 
+		- can transer value into the function and return it somwhere else
+		- can generate a value and transfer ownership to a variable
