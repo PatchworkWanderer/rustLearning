@@ -69,3 +69,9 @@ there are three rules of ownership in rust:
 	Returning a value from a function is also a way to transfer ownership 
 		- can transer value into the function and return it somwhere else
 		- can generate a value and transfer ownership to a variable
+
+[References and Borrowing]
+	A reference is like a pointer in that it's an adress we can follow to access the data stored at that address; that data is owned by some other variable
+		unlike a pointer, a reference is guaranteed to point to a valid value of a particular type for the lif of that reference
+
+	using an & will tell rust that we want to use the reference of the variable and is usefull for using a variable without taking ownership of it.

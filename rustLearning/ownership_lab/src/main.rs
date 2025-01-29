@@ -1,3 +1,6 @@
+#![allow(warnings)] // stops annoying warnings about unused vars
+					// and functions from this project
+
 fn main() {
 	//creating a string that allocates data on the heap making it mutable 
 	let mut s = String::from("hello"); // s is now in scope
@@ -14,8 +17,8 @@ fn main() {
 	//deep_copy();
 	//stack_copy();
 	//ownership();
-	return_ownership();
-
+	//return_ownership();
+	intro_reference();
 
 
 
@@ -129,8 +132,32 @@ fn takes_and_gives_back_ownership(str5: String) -> String {
 
 ///////////////////////////////////////////////////////////////////////
 
+fn intro_reference() {
 
+	let str1 = String::from("this str is used for reference");
+	
+	let str1_len = calc_len(&str1);
+	
+	println!("The length of '{str1}' is: {str1_len}");
+}
 
+fn calc_len(s: &String) -> usize{
+	s.len()
+}
+/*
+  the '&' used in the above section is to signify that we want to use
+  the refernce of the variable rather that the variable itself 
+  using the variable without taking ownership of the variable.
+  _________________________
+  |    s      |    str1    |________________ 
+  |name|value | name|value | index  | value |
+  |ptr |  x ->| ptr |  x ->|   0    |    h  |
+  ------------| len |  5   |   1    |    e  |
+              | cap |  5   |   2    |    l  |
+              -------------|   3    |    l  |
+                           |   4    |    o  |
+                           ------------------ 
+*/
 
 
 
