@@ -235,9 +235,11 @@ fn slice_lab() {
 //creating a way to return the index of a word, indicated by a space
 	let bytes = s.as_bytes(); //converting str to an array of bytes
 
-	for(i in &item) in bytes.iter().enumerate() {
-		if item == b' ' {
-			return i;
+	for(i in &item) in bytes.iter().enumerate() { //iterator going 
+										// through each element of the 
+										// byte array created
+		if item == b' ' {// looking for the byte value of space
+			return i;    // returning the index of the space
 		}
 	}
 	s.len()
