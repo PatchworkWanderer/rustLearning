@@ -134,16 +134,29 @@ fn takes_and_gives_back_ownership(str5: String) -> String {
 
 fn intro_reference() {
 
-	let str1 = String::from("this str is used for reference");
-	
-	let str1_len = calc_len(&str1);
-	
+	let str1 = String::from("this str is used for reference"); 
+		// str1 allocated to the heap
+	let str1_len = calc_len(&str1); 
+		// passes the reference of str1 to calc_len
 	println!("The length of '{str1}' is: {str1_len}");
+		// because the value of str1 was not droped it can be used
+
+	let mut str2 = String::from("Hello,");
+		//creation of a new mut str to demonstrate a mut reference
+	mutable_reference(&mut str2);
+		//passes the reference to the function where the value of 
+		//str2 will be changed
+	println!("{str2}"); //prints the updated str2 
+
+	multiple_reference_type_use();
 }
 
-fn calc_len(s: &String) -> usize{
+fn calc_len(s: &String) -> usize{ // since a reference of str1 was 
+                                  // passed the type has to be a 
+								  // string reference
 	s.len()
-}
+} // the value of s goes out of scope but since it doesn't have 
+  // ownership of that value it isn't dropped
 /*
   the '&' used in the above section is to signify that we want to use
   the refernce of the variable rather that the variable itself 
@@ -158,8 +171,32 @@ fn calc_len(s: &String) -> usize{
                            |   4    |    o  |
                            ------------------ 
 */
+fn mutable_reference(s: &mut String) {
+	s.push_str(" world!"); // changes the value of the reference 
+						   // owner and exits
+}
 
+fn multiple_reference_type_use() {
+// fn shows how to use immutable and mutable references together
 
+	// combining immutable and mutable references while
+	// all references are active
+	let mut str1 = String::from("hello, world!");
+
+	let str1r1 = &str1; //no problem
+	let str1r2 = &str1; //no problem
+	//let str1r3 = &mut str1; //big problem
+	//println!("{str1r1},{str1r2},{str1r3}");//will throw an error 
+										   //for combining multiple
+										   //types of references
+
+	//the above can be fixed by using the immutable references
+	//first then making the mutable one
+	println!("{str1r1},{str1r2}"); //vars will no longer be used
+
+	let str1r3 = &mut str1; //no problem
+	println!("{str1r3}");
+}
 
 
 

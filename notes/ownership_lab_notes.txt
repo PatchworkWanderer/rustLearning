@@ -58,6 +58,8 @@ there are three rules of ownership in rust:
 [Stack_copy]
 	if data is stored on the stack it can be copied directly from the stack
 
+	rust will not let you annotate a type with copy if the type, or any of its parts has implemented the drop trait (has had its value moved)
+
 	data types that can implement copy are:
 		-all integer types
 		-booleans
@@ -75,3 +77,29 @@ there are three rules of ownership in rust:
 		unlike a pointer, a reference is guaranteed to point to a valid value of a particular type for the lif of that reference
 
 	using an & will tell rust that we want to use the reference of the variable and is usefull for using a variable without taking ownership of it.
+
+	the act of creating a reference is called borrowing
+
+	by default references are immutable
+
+
+[Mutable reference]
+	like a regular reference with a few more steps and is able to change the value of the reference owner
+	
+	mutable references do have a restriction in that if you have a mutable reference to a value, you can have no otherr references to that value
+		-two vars that reference the same value
+			let mut x1 = &z;
+			let mut x2 = &z;
+
+	this restriction is to prevent data races that could be difficult to diagnose later in life
+		a data race happens when three behaviors occure
+			- two or more pointers access the same data at the same time
+			- at least one of the pointers is being used to write to the data
+			- there's no mechanism being used to synchronize access to the data.
+
+	when declaring the owning variable it needs to be mutable and when passed to a function it needs to be like (&mut <var>)
+	when declaring the function thats going to be using the mutable reference when declaring the var type it needs to be (<var>: &mut <var_type>)
+
+	you can have as many immutable references as you want but rust will throw an error if there is an mutable and immutable reference to the same value.
+
+	though you can use both types as long as their scopes don't overlap
