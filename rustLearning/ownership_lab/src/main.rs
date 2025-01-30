@@ -18,8 +18,8 @@ fn main() {
 	//stack_copy();
 	//ownership();
 	//return_ownership();
-	intro_reference();
-
+	//intro_reference();
+	slice_lab();
 
 
 } 
@@ -67,7 +67,7 @@ fn stack_copy() {
 
 }
 
-//////////////////////////////////////////////////////////////////////////
+//////////////////////////[basics of ownership]//////////////////////////
 
 fn ownership() {
 	let str1 = String::from("hello"); // str1 comes into scope and is
@@ -100,8 +100,6 @@ fn make_copy(int2: i32) { // int2 is called into scope
 	println!("{int2}");
 } // int2 goes out of scope, nothing special happens
 
-//////////////////////////////////////////////////////////////////////////
-
 fn return_ownership() { 
 	let str1 = gives_ownership();	// gives_ownership moves its return
 									// value into str1
@@ -130,7 +128,7 @@ fn takes_and_gives_back_ownership(str5: String) -> String {
 	str5
 }
 
-///////////////////////////////////////////////////////////////////////
+///////////////////////[basics of references]//////////////////////////////
 
 fn intro_reference() {
 
@@ -148,8 +146,12 @@ fn intro_reference() {
 		//str2 will be changed
 	println!("{str2}"); //prints the updated str2 
 
+//functions to showcase uses of references and what is impossible to do
+//with them
+
 	//multiple_reference_type_use();
-	dangling_reference();
+	//dangling_reference();
+	
 }
 
 fn calc_len(s: &String) -> usize{ // since a reference of str1 was 
@@ -204,19 +206,42 @@ fn dangling_reference() {
 	//trying to create a dangling reference to show
 	//that rust will prevent it
 	
-	let ref_to_nothing = dangle();
+	let ref_to_nothing = dangle();//s is dropped when dangle()
+								  //is returned ie nothing exits
 }
 
 fn dangle() -> &String {
 	let s = String::from("hello");
+	
+	//&s
+	s
+}//value of &s goes out of scope and is dropped
+ //could return s and it would work though
 
-	&s
+//////////////////////////[Basics of Slices]////////////////////////////////
+
+fn slice_lab() {
+	
+
+
+
+//functions to showcase uses of slices and what 
+//can be done with them
+	problem_without_slices();
+	problem_with_slices();
+
 }
+ fn problem_without_slices(s: &String) -> usize{
+//creating a way to return the index of a word, indicated by a space
+	let bytes = s.as_bytes(); //converting str to an array of bytes
 
-
-
-
-
+	for(i in &item) in bytes.iter().enumerate() {
+		if item == b' ' {
+			return i;
+		}
+	}
+	s.len()
+}
 
 
 

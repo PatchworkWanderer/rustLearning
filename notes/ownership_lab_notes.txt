@@ -112,7 +112,11 @@ there are three rules of ownership in rust:
 	 the data will not go out of scope before the reference to the data does
 	
 
+[Slices]
+	slices allow you to reference a contiguous sequence of elements in a collection ratther than the whole collection
+	-a slice is a sort of reference, so it doesn't have ownership of the borrowed elements
 
+	
 
 
 
