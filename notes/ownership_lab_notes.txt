@@ -103,3 +103,21 @@ there are three rules of ownership in rust:
 	you can have as many immutable references as you want but rust will throw an error if there is an mutable and immutable reference to the same value.
 
 	though you can use both types as long as their scopes don't overlap
+
+[Dangling_reference]
+	Dangling pointers are pointers that references a location in memory that may have been 
+	given to someone else by freeing some memory while preserving a pointer to that memory
+	
+	-this is impossible to do in rust as the compiler will make sure that
+	 the data will not go out of scope before the reference to the data does
+	
+
+
+
+
+
+
+
+
+
+

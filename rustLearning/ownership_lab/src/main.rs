@@ -148,7 +148,8 @@ fn intro_reference() {
 		//str2 will be changed
 	println!("{str2}"); //prints the updated str2 
 
-	multiple_reference_type_use();
+	//multiple_reference_type_use();
+	dangling_reference();
 }
 
 fn calc_len(s: &String) -> usize{ // since a reference of str1 was 
@@ -194,11 +195,23 @@ fn multiple_reference_type_use() {
 	//first then making the mutable one
 	println!("{str1r1},{str1r2}"); //vars will no longer be used
 
-	let str1r3 = &mut str1; //no problem
+	let str1r3 = &mut str1; //no problem declaring a mutable ref
+						    //as all immutable refs are already used
 	println!("{str1r3}");
 }
 
+fn dangling_reference() {
+	//trying to create a dangling reference to show
+	//that rust will prevent it
+	
+	let ref_to_nothing = dangle();
+}
 
+fn dangle() -> &String {
+	let s = String::from("hello");
+
+	&s
+}
 
 
 
