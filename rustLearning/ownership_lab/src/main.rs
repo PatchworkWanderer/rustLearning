@@ -210,7 +210,7 @@ fn dangling_reference() {
 								  //is returned ie nothing exits
 }
 
-fn dangle() -> &String {
+fn dangle() -> String {
 	let s = String::from("hello");
 	
 	//&s
@@ -227,15 +227,27 @@ fn slice_lab() {
 
 //functions to showcase uses of slices and what 
 //can be done with them
-	problem_without_slices();
-	problem_with_slices();
+	let mut str_slices = String::from("hello world!");
+	let word_place = getting_word_index(&str_slices);
+			// word_place will get the value of 5
+	let word = &str_slices[..word_place];	
+			// makes a slice of str_slices from index 0 to 5
+
+//	str_slices.clear(); // clears the string making it == ""
+		// word still has the value 5 but no string to meanigfully 
+		// use it on. making it totally invalid
+	println!("{word}");
+	
+	// if we wanted to get the first word with slices we could use
+	// the above to take the len of the first word and feed it 
+	// into a slice to grab the word
 
 }
- fn problem_without_slices(s: &String) -> usize{
+ fn getting_word_index(s: &String) -> usize{
 //creating a way to return the index of a word, indicated by a space
 	let bytes = s.as_bytes(); //converting str to an array of bytes
 
-	for(i in &item) in bytes.iter().enumerate() { //iterator going 
+	for (i, &item) in bytes.iter().enumerate() { //iterator going 
 										// through each element of the 
 										// byte array created
 		if item == b' ' {// looking for the byte value of space
@@ -244,20 +256,3 @@ fn slice_lab() {
 	}
 	s.len()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

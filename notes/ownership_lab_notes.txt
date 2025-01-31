@@ -116,12 +116,11 @@ there are three rules of ownership in rust:
 	slices allow you to reference a contiguous sequence of elements in a collection ratther than the whole collection
 	-a slice is a sort of reference, so it doesn't have ownership of the borrowed elements
 
-	
+	string slices are declared in the format of 
+		let <var_name> = &<str_to_be_referenced>[<start>..<end>]
 
+	when declaring a range if you want to start at the 0 index you can skip putting a start value.
+		[0..5] == [..5]
 
-
-
-
-
-
-
+	the same thing can be done for the trailing number if you want the last index value.
+		[6..11] == [6..]
