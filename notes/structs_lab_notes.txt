@@ -1,0 +1,22 @@
+[Structs]
+	a struct is a custom data type that lets you package together and name multiple related values that make up a meaningful group
+		-similar to on object's data attribute in object-orientated languages
+		-structs and enums are the building blocks for creating new types in your program's domain to take full advantage of Rust's compile-time type checking
+	
+	structs are similar to tuples in that both hold multiple related values and can be different types
+		they differ from tuples in that you name each piece of data so its clear what the values mean. making structs more flexible
+
+	sample define of a struct				creation of a struct instance
+
+	struct <name> {							let <name> = <struct_name> {
+		<field1>: <type>,						<field1>: <value>,
+		<field2>: <type>,						<field2>: <value>,
+		<field3>: <type>,						<field3>: <value>,
+	}										};
+
+	to use a specific value from a struct use dot notation 
+		<object_name>.<field>
+
+[field init shorthand]
+
+
