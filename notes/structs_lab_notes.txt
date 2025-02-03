@@ -18,5 +18,40 @@
 		<object_name>.<field>
 
 [field init shorthand]
+field init short hand is used when using a function to create an instance of a struct if the parameter name passed to the function 
+is the same as the field of the struct used then you are able to just have the parameter in place
+
+fn build_user(email: String, username: String) -> User {
+     //showcase to demonstrate field init while using structs
+	     User {
+         active: true,
+         username, //because we are passing username and email as parameters
+         email,    //we can skip the repetition if the struct fields match with
+         sign_in_count: 1, //the parameters passed
+     }
+ }
+
+[Struct Update Syntax]
+	rust allows you to fill out an instance of a struct with a previously declared instance
+	such as a template  
+	
+	after filling out the unique data in an instance you can use the update syntax
+			..<template_instance>
+
+[Tuples Structs]
+	these are structs that are like tuples in the fact that it is fieldless and contains valus
+	
+	Tuple structs are useful when you want to give the whole tuple a name and make the tuple a different type from the other tuples,
+	and when naming each field as in a regular struct would be verbose or redundant (such as an coordinates for a map)
+
+
+
+
+
+
+
+
+
+
 
 
