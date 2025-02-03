@@ -222,33 +222,34 @@ fn dangle() -> String {
 
 fn slice_lab() {
 	
-
-
-
 //functions to showcase uses of slices and what 
 //can be done with them
 	let mut str_slices = String::from("hello world!");
+	let word = getting_word_best_ver(&str_slices);
+			// will get the first word of the string can take 
+			// string literals or slices of a string
 	let word_place = getting_word_index(&str_slices);
 			// word_place will get the value of 5
-	let word = &str_slices[..word_place];	
+	//let word = &str_slices[..word_place];	
 			// makes a slice of str_slices from index 0 to 5
 
 //	str_slices.clear(); // clears the string making it == ""
 		// word still has the value 5 but no string to meanigfully 
 		// use it on. making it totally invalid
+	println!("{word_place}");
 	println!("{word}");
-	
 	// if we wanted to get the first word with slices we could use
 	// the above to take the len of the first word and feed it 
 	// into a slice to grab the word
 
 }
- fn getting_word_index(s: &String) -> usize{
+
+fn getting_word_index(s: &String) -> usize{
 //creating a way to return the index of a word, indicated by a space
 	let bytes = s.as_bytes(); //converting str to an array of bytes
 
 	for (i, &item) in bytes.iter().enumerate() { //iterator going 
-										// through each element of the 
+			   							// through each element of the 
 										// byte array created
 		if item == b' ' {// looking for the byte value of space
 			return i;    // returning the index of the space
@@ -256,3 +257,28 @@ fn slice_lab() {
 	}
 	s.len()
 }
+
+fn getting_word_best_ver(s: &str) -> &str{
+//creating a way to return just the slice of the word, indicated by a space
+	let bytes = s.as_bytes(); //converting str to an array of bytes
+
+	for (i, &item) in bytes.iter().enumerate() { //iterator going 
+										// through each element of the 
+										// byte array created
+		if item == b' ' {// looking for the byte value of space
+			return &s[0..i];    // returning the index of the space
+		}
+	}
+	&s[..]
+}
+
+
+
+
+
+
+
+
+
+
+

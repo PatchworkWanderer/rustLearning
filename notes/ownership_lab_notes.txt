@@ -15,7 +15,7 @@ there are three rules of ownership in rust:
 
 
 [Stack]
-	the stack stores values in the order that it recieves them in a "last in, first out" way
+	the stack stores values in the order that it receives them in a "last in, first out" way
 	
 	adding data to the stack is call pushing to the stack
 
@@ -31,15 +31,15 @@ there are three rules of ownership in rust:
 	when allocating on the heap you request for an empty spot in the heap that is big enough, marks it as being used, then returns a pointer to that space
 
 [Memory_and_Allocation]
-	using the string type as an example, in order to support a mutable, growable piece of text, we need to allocate an amount of memory on the heap, unknown at compile time, to hold the contents.
-		-the memory must be requested from the memory allocator at runtime
+	using the string type as an example, in order to support a mutable, grow-able piece of text, we need to allocate an amount of memory on the heap, unknown at compile time, to hold the contents.
+		-the memory must be requested from the memory allocator at run-time
 		-we need a way of returning this memory to the allocator when we're done with our string
 
 	the first part is done by using the String::from() in the first part of the lab 
 		-the String::from() requests the memory that it needs
 
 	the second part is different from most languages cause rust doesn't have a garbage collector that keeps track of and cleans up memory that isn't being used anymore
-		-the resposiblilty falls to the programmer to be the garbage collecter
+		-the responsibility falls to the programmer to be the garbage collector
 		- match one allocate to exactly one free
 
 	Rust will auto matically return memory once the variable that owns it goes out of scope with the drop function
@@ -69,14 +69,14 @@ there are three rules of ownership in rust:
 
 [Returning_value]
 	Returning a value from a function is also a way to transfer ownership 
-		- can transer value into the function and return it somwhere else
+		- can transfer value into the function and return it somewhere else
 		- can generate a value and transfer ownership to a variable
 
 [References and Borrowing]
-	A reference is like a pointer in that it's an adress we can follow to access the data stored at that address; that data is owned by some other variable
-		unlike a pointer, a reference is guaranteed to point to a valid value of a particular type for the lif of that reference
+	A reference is like a pointer in that it's an address we can follow to access the data stored at that address; that data is owned by some other variable
+		unlike a pointer, a reference is guaranteed to point to a valid value of a particular type for the life of that reference
 
-	using an & will tell rust that we want to use the reference of the variable and is usefull for using a variable without taking ownership of it.
+	using an & will tell rust that we want to use the reference of the variable and is useful for using a variable without taking ownership of it.
 
 	the act of creating a reference is called borrowing
 
@@ -86,19 +86,19 @@ there are three rules of ownership in rust:
 [Mutable reference]
 	like a regular reference with a few more steps and is able to change the value of the reference owner
 	
-	mutable references do have a restriction in that if you have a mutable reference to a value, you can have no otherr references to that value
+	mutable references do have a restriction in that if you have a mutable reference to a value, you can have no other references to that value
 		-two vars that reference the same value
 			let mut x1 = &z;
 			let mut x2 = &z;
 
 	this restriction is to prevent data races that could be difficult to diagnose later in life
-		a data race happens when three behaviors occure
+		a data race happens when three behaviors occur
 			- two or more pointers access the same data at the same time
 			- at least one of the pointers is being used to write to the data
 			- there's no mechanism being used to synchronize access to the data.
 
 	when declaring the owning variable it needs to be mutable and when passed to a function it needs to be like (&mut <var>)
-	when declaring the function thats going to be using the mutable reference when declaring the var type it needs to be (<var>: &mut <var_type>)
+	when declaring the function that's going to be using the mutable reference when declaring the var type it needs to be (<var>: &mut <var_type>)
 
 	you can have as many immutable references as you want but rust will throw an error if there is an mutable and immutable reference to the same value.
 
@@ -113,7 +113,7 @@ there are three rules of ownership in rust:
 	
 
 [Slices]
-	slices allow you to reference a contiguous sequence of elements in a collection ratther than the whole collection
+	slices allow you to reference a contiguous sequence of elements in a collection rather than the whole collection
 	-a slice is a sort of reference, so it doesn't have ownership of the borrowed elements
 
 	string slices are declared in the format of 
@@ -124,3 +124,11 @@ there are three rules of ownership in rust:
 
 	the same thing can be done for the trailing number if you want the last index value.
 		[6..11] == [6..]
+
+	in the example of 'let s = "Hello, world!";' the type of s is &str
+		this means that its a slice pointing to that specific point of the binary which makes that string literal immutable as &str is an immutable reference
+	
+[String Slices as Parameters]
+	by defining a function to take a string slice instead of a reference to a string we make the function more general and applicable to more use-cases
+
+
