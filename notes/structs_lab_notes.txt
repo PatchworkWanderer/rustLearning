@@ -48,11 +48,52 @@ fn build_user(email: String, username: String) -> User {
 	behave similar to the tuple type and are useful when you need to implement a trait on 
 	some type but don't have any data that youwant to store in the type itself
 
+[Printing Struct Data]
+	by default rust won't print struct data
+
+	by adding '#[derive(Debug)]' to the code you will be able to print structs
+
+	when using the println statement for a struct there are two ways that it can do it 
+		{:?}  -- one line    | the values of the rectangle are Rectangle { height: 69, width: 69 }
+		{:#?} -- multi line  | the values of the rectangle are Rectangle {
+							       height: 69,
+                                   width: 69,
+							   }
+
+[Debuging Structs]
+	we can use the dbg! macro to take ownership of a specific struct field 
+
+	the macro will return the following output when ran:
+
+[src/main.rs:127:10] 30 * scale = 60
+[src/main.rs:131:2] &rect1 = Rectangle {
+    height: 69,
+    width: 60,
+}
+
+[Methods]
+	methods are like functions in that they are declared with fn, can take parameters, has some code to be ran, and return a value
+
+	unlike functions methods are defined within the context of a struct and that their first parameter is always self
+		- self represents the instance of the struct the method is being called on
+
+	self is an alias for the type that the impl block is for.
+
+	method names can have the same name as the struts fields
+
+	most of the time when methods are given the same name as a field they do nothing but return the value of that field
+		- this kind of method is called a getter.
+		- getters are useful when you want to make the field private but the method public enabling read-only access to the field
+
+	each struct is allowed to have multiple impl blocks but its bad for organization.
+
+[Associated functions]
+	all functions within an impl block are called associated functions cause they are associated with the type named after the impl
+
+	can be defined as functions that don't need an instance of the type to work with 
+
+	typically these are used as constructors for new instances of a type
+
+	to call an associated function we call it with the name of the type and the function name
+		Struct::function_name(parameters);
 	
-
-
-
-
-
-
-

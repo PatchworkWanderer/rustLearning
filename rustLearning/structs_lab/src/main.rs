@@ -51,6 +51,7 @@ fn main() {
 	handeler();
 	handeler_tuple();
 	handeler_structs();
+	handeler_methods();
 
 }
 
@@ -112,21 +113,93 @@ fn handeler_tuple() {
 }
 
 ///////////////////[example with structs]////////////////////////////////
-
+#[derive(Debug)] // placing this here will allow us to print Rectangle
+				 // structs
 struct Rectangle {
 	height: u32,
 	width: u32
 }
 
-fn handeler_structs() {
-	let rect1 = Rectangle {
-		width: 69,
-		height: 69,
-	};
 
-	println!("the area of the square is {} pixles", area(rect1.width, rect1.height));
+
+fn handeler_structs() { // now ft. the dbg! macro
+	let scale = 2;
+	let rect1 = Rectangle {
+		width: dbg!(30 * scale), //calls the debug macro which will
+		height: 69,				 //print the expression in () as well
+	};							 //as what width equates to
+	
+	dbg!(&rect1); // by calling the macro here we are able to see what
+				  // the value of the specified field
+	  			  // since we didn't want dbg! to take ownership we used
+				  // a referenced
+	
+	println!("the area of the square is {} pixles", area_structs(&rect1));
+	println!("\nthe values of the rectangle are {:?}", rect1);
+		// printing a struct to see its values
+		// the option of {:?} or {:#?} are available 
 
 }
+
+fn area_structs(rect: &Rectangle) -> u32 {
+	rect.height * rect.width
+}
+
+/////////////////////////////[method area]///////////////////////////////
+#[derive(Debug)]
+struct Triangle { //basic struct to work with
+	base: f32,
+	height: f32,
+}
+
+impl Triangle { // impl tells rust to define the following functions
+				// with in the context of the struct Triangle
+
+	fn area(&self) -> f32 { //&self passes a reference of the type into 
+							//the method.
+		self.base * self.height * 0.5
+	}
+
+	fn can_hold(&self,tri2: &Triangle) -> bool {
+		if self.base > tri2.base && self.height > tri2.height {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	fn triangle(size: f32) -> Self { //this is an associated function as it doesn't
+									 //reference self as a parameter
+		Self {
+			base: size,
+			height: size,
+		}
+	}
+
+}
+
+fn handeler_methods() {
+	let tri1 = Triangle{
+		base: 10.0,
+		height: 15.0,
+	};
+
+	let tri2 = Triangle{
+		base: 5.0,
+		height: 10.0,
+	};
+
+	let tri3 = Triangle::triangle(6.0); //calling the associated function
+										//to construct a new instance of Triangle
+
+	println!("\n\nthe area of the triangle is {} square pixels", tri1.area());
+	println!("\n\ncan tri1 hold tri2: {}", tri1.can_hold(&tri2));
+	println!("\n\ncan tri2 hold tri1: {}", tri2.can_hold(&tri1));
+	println!("the value of tri3 is: {:?}", tri3);
+
+}
+
+
 
 
 
