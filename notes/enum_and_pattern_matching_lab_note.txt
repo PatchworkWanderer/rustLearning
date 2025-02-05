@@ -18,3 +18,39 @@
 
 		the type of data can be any thing including struct types
 
+[The Option enum]
+	an enum from the standard library 
+	
+	The Option type encodes the very common scenario in which a value could be something or it could be nothing.
+
+	because rust doesn't have the null feature this type is huge to tell if the desired value is something or nothing
+
+	Option is so useful that its included in the prelude; meaning that you don't need to bring it into scope explicitly	
+
+	the <T> syntax in the Option<T> enum is a generic type parameter meaning that it can hold one value of any type 
+
+	the difference between Option<T> and Null is that the compiler won't let us use an Option<T> value as if it were definitely a valid value
+
+	to use Option<T> types with their non Option counter part they must be converted from an Option<T> to a T type. 
+
+[Match Control Flow Construct]
+
+	the match control flow construct allows you to compare a value against a 
+	series of patterns and then execute code based on which pattern matches.
+
+	match can be thought of as a coin-sorting machine
+	
+	as long as the expression of the arm is short enough to fit on one line curly braces arn't needed
+	
+	if multiple lines are needed curly braces must be used 
+		- in this case the comma after the expression is optional.
+	
+	match <var> {
+		< arm > => <expression>
+		<case1> => <value to return>,
+		<case2> => {<Code to execute>}<optional comma>
+	}
+
+	match arms are also able to bind to the parts of the values that match the pattern
+		-this is how we can extract the value out of the enum varients.
+
