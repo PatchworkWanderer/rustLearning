@@ -1,0 +1,20 @@
+[Enumerations]
+	enums allow you to define a type by enumerating its possible varients
+		-enums give you a way of saying a value is one of a possible set of values
+
+	the enum called Option expresses that a value can be either something or nothing
+
+	with a value that has a fixed amount of posibilities we can give rust all of the possible varients
+
+	enums are declared as types which makes them able to be used as arguments in functions
+
+	enums can also have data directly attached to the varient
+		-in this case a string type
+
+		enum IpAddr {
+			V4(String),
+			V6(String),
+		}
+
+		the type of data can be any thing including struct types
+
