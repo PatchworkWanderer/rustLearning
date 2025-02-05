@@ -1,1 +1,1 @@
-/home/patchwork/rustLearning/rustLearning/enum_and_pattern_matching_lab/target/debug/enum_and_pattern_matching_lab: /home/patchwork/rustLearning/rustLearning/enum_and_pattern_matching_lab/src/main.rs
+/home/patchwork/rustLearning/rustProjects/enum_and_pattern_matching_lab/target/debug/enum_and_pattern_matching_lab: /home/patchwork/rustLearning/rustProjects/enum_and_pattern_matching_lab/src/main.rs
