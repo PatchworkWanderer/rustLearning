@@ -5,5 +5,5 @@ I have split the projects and notes into two different directories based on the 
 
 each section has a corresponding txt file in the notes dir 
 
-source code for each project is going to be located here -> rustLearning/<project_name>/src/main.rs
+source code for each project is going to be located here -> rustProjects/<project_name>/src/main.rs
 
