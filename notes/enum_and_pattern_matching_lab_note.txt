@@ -54,3 +54,24 @@
 	match arms are also able to bind to the parts of the values that match the pattern
 		-this is how we can extract the value out of the enum varients.
 
+	matches are exhaustive
+		-must cover all possibilities for the code to be valid
+
+[Catch-all Patterns and _ placeholder]
+	for match patterns since all possibilities must be covered we can create a catch-all patern
+	
+	since catch-alls will cover all possible options they must be at the end of a match pattern cause it will
+	never run the arms that are unique.
+
+	there is also a special pattern that we can use when we want a catch all but not use the value of the catch all
+
+[Concise Control Flow with if let]
+	the if let syntax lets you combine if and let into a less verbose way to handle values that match one pattern while ignoring the rest
+
+
+
+
+
+
+
+
