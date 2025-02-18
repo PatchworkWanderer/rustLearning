@@ -1,0 +1,1 @@
+/home/patchwork/Programming/rustLearning/rustProjects/cargo_functionality/target/debug/cargo_functionality: /home/patchwork/Programming/rustLearning/rustProjects/cargo_functionality/src/garden/vegetables.rs /home/patchwork/Programming/rustLearning/rustProjects/cargo_functionality/src/garden.rs /home/patchwork/Programming/rustLearning/rustProjects/cargo_functionality/src/main.rs
