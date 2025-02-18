@@ -1,0 +1,72 @@
+rust has a number of features that allow you to manage your code's organization including 
+	- which details are exposed
+	- which details are private
+	- what names are in each scope in you programs
+
+These features are sometimes collectivly called the module system include:
+	- Packages      : lets you build test and share crates
+	- Crates        : a tree of modules that produces a library or exe
+	- Modules & use : Lets you control the organization, scope, and privacy of paths
+	- Paths         : A way of naming an item, such as a struct, function, or module
+
+[Packages & Crates]
+
+A crate is the smallest amount of code that the rust compiler considers at a time
+	- this would be the main.rs file in most of the projects so far 
+	- especially if rustc is used to turn the file into an exe
+
+	There are two types of crates 
+		Binary crates: contains a main function that can compile into an exe
+	
+		Library crate: don't have a main function and don't compile but define
+					   functionalities that are intended to be shared with 
+					   multiple projects
+
+	there is also the root crate which is the source file where the Rust compiler starts from and makes
+	up to the root module of your crate.
+		typically: src/main.rs for binary crates and src/lib.rs for library crates
+		
+
+A package is a bundle of one or more crates that provides a set of functionality 
+
+	must contain a Cargo.toml that describes how to build those crates
+	
+	a package can contain as many binary crates as you want but may only hold a single library crate
+
+
+cargo new <package_name>
+
+in that package there is a dir src/main.rs and a Cargo.toml
+
+the src/main.rs would be the root crate of the package
+
+[Modules]
+	in the crate root file you can declare new modules with 'mod <module_name>;' syntax
+
+	rust will look for the module in the following order.
+		- inline following the declaration
+		- in the file src/<module_name>.rs
+		- in the file src/<module_name>/mod.rs
+
+	Sub modules can be declared in any file other than the crate root and will follow the rules above 
+	except having the parent module to go through.
+		src/<parent_mod>/<submod_name>.rs
+		src/<parent_mod>/<submod_name>/mod.rs
+
+	Once a module is part of your crate you can refer to code in that module from any where else in
+	the same crate, as long as the privacy rules allow
+
+	by default modules are private from their parent modules but can be made
+
+	generally the file tree will look something like this:
+		<package>
+			Cargo.lock
+			Cargo.toml
+			
+			src
+				<module>
+					<sub_module>.rs
+				<module>.rs
+				main.rs
+
+	
