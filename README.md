@@ -7,4 +7,4 @@ each section has a corresponding txt file in the notes dir
 
 source code for each project is going to be located here -> rustProjects/<project_name>/src/main.rs
 
-this is a test
+
